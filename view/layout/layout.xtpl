@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="charset" content="utf-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    {{{block ("head")}}}
+</head>
+<body class={{'page-'+pageStyle}}>
+    <div class="page-wrapper">
+        {{include ("./header")}}
+        <div class="main">
+            <section class="content">
+            <div class="preamble">
+                <h3>too young too simple, sometimes naive.</h3>
+            </div>
+            {{{block ("body")}}}
+            </section>
+            {{include ("./sidebar")}}            
+        </div>
+        <div class="footer-holder"></div>
+    </div>
+    {{include ("./footer")}}
+    {{include ("./script")}}
+</body>
+</html>

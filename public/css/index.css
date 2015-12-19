@@ -1,0 +1,512 @@
+/* 基本的全局样式*/
+html,body {
+    margin: 0;
+    padding: 0;
+    font: 80% georgia, sans-serif;
+    height: 100%;
+    width: 100%;
+    color:#666;
+    font-family: 'Bree Serif', serif;
+}
+
+p {
+    margin:0;
+    text-align: justify;
+}
+a {
+    text-decoration: none;
+    color:#666;
+}
+ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+h1,h2,h3,h4,h5{
+    margin:0;
+    padding:0;
+}
+
+/* 页面样式*/
+.page-wrapper{
+    position: relative;
+    min-height: 100%;
+    background: #f6f6f6;
+    margin-bottom: -4.8rem;
+}
+
+.page-footer,.footer-holder{
+    height:4.8rem;
+}
+
+.page-footer{
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.12);
+    background: #acd0ce;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 4.8rem;
+    font-style: italic;
+    position: absolute;
+}
+
+/* banner样式*/
+.intro {
+    min-width: 470px;
+    width: 100%;
+    background: #acd0ce;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);
+}
+
+.banner{
+/*    padding: 3.6rem 17.5rem 3.6rem 11rem;*/
+    height: 17rem;
+    box-sizing: border-box;
+    position: relative;
+    width: 80%;
+}
+
+.banner .desc{
+}
+
+.banner .home{
+    display: inline-block;
+    position: relative;
+    transform: rotateZ(-2deg);
+    transform-origin: center center;
+    margin-top:1rem;
+    margin-left:4.8rem;
+}
+.banner .slogon{
+    background: #cc3366;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    font-style: italic;
+    padding: 8px;
+    width: 64px;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    box-shadow: 4px 6px #444;
+    font-weight: 700;
+    border-radius: 4px;
+    position: relative;
+    top: 1rem;
+    right: 1rem;
+
+}
+.banner .home:hover{
+    opacity: 0.8;
+}
+.banner .row{
+    background: #fff;
+}
+
+
+.banner .logo-wrap{
+    float: left;
+    background: #efefef;
+    border: 4px solid #999;
+    padding: 8px 4px;
+    box-shadow: 4px 4px #444;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.banner .logo-wrap img{
+    width: 96px;
+}
+.banner .logo-holder{
+    width: 120px;
+    display: inline-block;
+    text-align: right;
+}
+.banner .logo-dot{
+    display: inline-block;
+    width: 10px;
+    margin-right: 6px;
+    height: 10px;
+    background: #cc3366;
+}
+
+
+.banner .brief-intro{
+    color: #666;
+    font-size: 2rem;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 1rem 2rem;
+    font-style: italic;
+}
+
+.banner .title{
+    font-size: 2.4rem;
+    font-style: italic;
+    padding: 2rem 1rem;
+    text-align: center;
+    background: #fff;
+    display: inline-block;
+
+}
+.banner .subtitle{
+color: #666;
+    font-size: 2.4rem;
+    display: inline-block;
+    padding: 1rem 2rem 0 1rem;
+    border-top-right-radius: 2px;
+    box-shadow: 0px 5px #fff ,5px 4px #444;
+    padding-bottom: 0;
+    margin-left: 4px;
+    vertical-align: bottom;
+    background: #fff;
+}
+.banner .logo-preamble{
+    font-size: 2rem;    
+    background: #fff;
+    padding: 1rem 0;
+    box-shadow: 5px 6px 2px 1px #444;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.banner .preamble strong{
+    background:#444;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 2px;
+    color:#fff;
+}
+.content{
+    box-sizing: border-box;
+}
+
+/* menu样式*/
+.menu-box{
+    width: 17rem;
+    height: 17rem;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 20%;
+}
+.menu-box a{
+    width: 8.5rem;
+    height: 8.5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 8.5rem;
+    float: left;
+    text-decoration: underline;
+    box-shadow:0 1px 5px #94b3b1, inset 0 10px 20px #94b3b1;
+}
+.menu-box a:hover{
+    background: #F7F0DB;
+}
+
+.page-about .about-content{
+    padding: 1em 0 1em 0;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+}
+.page-article .preamble,.page-about .preamble{
+    display: none;
+}
+
+.page-article h1,h2,h3,h4,h5{
+    margin:1rem 0;
+    color:#000;
+}
+.page-article p {
+    font-size: 1.2rem;
+}
+.page-article h2{
+    font-size: 3rem;
+}
+.page-article h3{
+    font-size: 2.4rem;
+}
+.page-article h4{
+    font-size: 2rem;
+}
+.page-article h5{
+    font-size: 1.8rem;
+}
+
+/** 文章主体**/
+.main{
+    width: 80%;
+    overflow: hidden;
+}
+.content{
+    overflow: hidden;
+    padding:2.4rem 4.8rem;
+    height: 100%;
+}
+
+.preamble h3{
+    font-size: 1.6rem;
+    font-style: italic;
+}
+
+.page-index .posts {
+    margin: 1.6rem 0;
+}
+
+.page-index .posts li{
+    padding:1.6rem;
+    margin-bottom:1.6rem;
+}
+.page-index .post-link{
+    box-shadow: 1px 1px 10px #666;
+    padding:2rem 2rem 3rem;
+    display: block;
+}
+.page-index .post-link:hover{
+    opacity: 0.6;
+}
+.page-index .post-link h3{
+    font-size: 2rem;
+}
+.page-index .post-link .desc{
+    color:#999;
+    margin:1rem 0;
+    font-size: 1rem;
+}
+.page-index .post-link .summary{
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    max-height: 7.2rem;
+    overflow: hidden;
+}
+
+/* 归档主体*/
+.page-tags .archs,.page-tags .posts,.page-archives .archs,.page-archives .posts{
+    margin: 1.6rem 0;
+    float:left;
+    font-size:1.4rem;
+}
+
+.page-tags .archs,.page-archives .archs{
+    width: 20%;
+}
+.page-tags .posts,.page-archives .posts{
+    width: 80%;
+}
+
+.page-tags .archs li,.page-tags .posts li,.page-archives .archs li,.page-archives .posts li{
+    margin-bottom: 1rem;
+}
+
+.page-tags .posts h4,.page-archives .posts h4{
+    font-size:1.6rem;
+}
+.page-tags .posts .time-info,.page-archives .posts .time-info{
+    color:#999;
+    font-size: 1rem;
+}
+.page-tags .posts li,.page-archives .posts li{
+    width: 50%;
+    float: left;
+}
+.page-tags .posts a,.page-archives .posts a{
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.page-tags .posts a:hover,.page-archives .posts a:hover{
+    opacity: 0.8;
+}
+
+/** 分类页 标签按钮**/
+.page-tags .tag{
+    position: relative;
+    background:#acd0ce;
+    color:#666;
+    border:0;
+    border-left:4px solid #8BA7A5;
+    width: 50%;
+    padding:0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.page-tags .tag:hover{
+    background: #94b3b1;
+}
+.page-tags .tag .count{
+    border-radius: 16px;
+    position: absolute;
+    right: 0.6rem;
+    text-align: center;
+    width: 24px;
+    padding: 0 5px;
+    height: 16px;
+    line-height: 16px;
+    background: rgba(0,0,0,0.12);
+}
+
+/* 文章页面*/
+.page-article .article{
+    padding: 1rem;
+}
+
+.article .title{
+    font-size: 3.6rem;
+    line-height: 4.8rem;
+}
+.article .desc{
+    font-size: 1.2rem;
+    color: #999;
+    line-height: 2rem;
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+}
+.article .post{
+    font-size: 1.6rem;
+    line-height: 3rem;
+    font-style: normal;
+    border-bottom: 1px solid rgba(0,0,0,0.13);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+.article .tags{
+    margin:1rem 0;
+    float: left;
+}
+.article .tags li{
+    float: left;
+    margin-right:1rem;
+}
+.article .tags .txt{
+    font-size: 1.2rem;
+    padding: 0.6rem;
+}
+.article .tags a{
+    border-radius: 4px;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);
+    background:#acd0ce;
+    color:#666;
+    border:0;
+    text-align: center;
+    padding:0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+}
+.article .tags a:hover{
+    background: #94b3b1;
+}
+
+.article .share-bar{
+    float: right;
+}
+.article .share-bar h3{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+/* 清除浮动 */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.content footer{
+
+}
+
+/* 上传文章页面*/
+.page-upload .content{
+    width: 100%;
+}
+.page-upload .sidebar,.page-upload .preamble{
+    display: none;
+}
+.page-upload #post,.page-upload #post-real{
+    vertical-align: top;
+    display: inline-block;
+    padding: 0;
+    width: 45%;
+    height: 20rem;
+    min-height: 20rem;
+    overflow: scroll;
+    border: 1px solid #999;
+}
+.page-upload .form-data{
+    margin: 1rem 0;
+}
+.page-upload .more-tag{
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background:#fff;
+    border:1px solid #999;
+}
+.page-upload label{
+    width: 5rem;
+    text-align: right;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+
+/* 侧栏样式*/
+.sidebar{
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.12);
+    position: fixed;
+    right: 0;
+    width: 20%;
+    top:0;
+    background: #F7F0DB;
+    bottom:0;
+    opacity: 0.9;
+}
+
+.sidebar .title h2{
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.sidebar .title {
+    height:14rem;
+    line-height: 14rem;
+}
+
+.sidebar .desc .avatar{
+    width:64px;
+    height: 64px;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+.work-name{
+    padding: 1rem;  
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.wx{
+    width: 90%;
+}
+
+.work-name:hover{
+    background: #f7e2a3;
+    opacity: 0.8;
+}
+
+.works h3{
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+}
+
+.works .desc{
+    font-size: 1.2rem;
+    line-height: 3.2rem;
+}
+
+

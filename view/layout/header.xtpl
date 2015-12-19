@@ -1,0 +1,36 @@
+<!-- 头部-->
+<section class="intro">
+    <header role="banner" class="banner">
+    	<a href="/" role="button" class="home">                        
+            <div class="logo-wrap">
+                <img src="/image/stan.png" />
+            </div>                     
+
+            <h2 class="brief-intro">
+                QuirkyVar
+            </h2>
+
+            <div class="slogon">
+                Just Coding ..Later! 
+            </div>  
+            <br/>
+
+            <div class="subtitle">
+                前端博客
+            </div>
+
+            <div class="logo-preamble">
+                <div class="logo-holder"><span class="logo-dot"></span>一只</div>
+                <strong>“小恐龙”</strong>
+                <span>的漫游记</span>
+            </div>
+            
+
+        </a>
+    </header>
+    <div class="menu-box" role="menu">
+        <a href="/archives" role="menuitem">归档</a>
+        <a href="/tags" role="menuitem">分类</a>
+        <a href="/about" role="menuitem">关于</a>
+    </div>
+</section>

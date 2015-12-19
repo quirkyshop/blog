@@ -1,0 +1,136 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+
+    </style>
+{{/block}}
+
+{{#block ("body")}}            
+    <form action="/uploadPost" method="post" enctype="multipart/form-data">
+        <div class="form-data">
+            <label for="title">文章名:</label>
+            <input type="text" id="title" name="title" required/>
+        </div>
+
+        <div class="form-data" id="tags">
+            <label for="tags">标签:</label>
+            <input id="tag" type="text"/>
+            <button class="more-tag" type="button">+</button>
+            <input name="tags" type="hidden" id="real_tag"/>
+        </div>
+
+
+        <div class="form-data">
+            <label for="image">封面图片</label>
+            <input id="image" name="image" type="file"/>
+        </div>
+
+        <div class="form-data">
+            <label for="post">正文</label>
+            <textarea id="post" name="content" required></textarea>
+
+            {{!-- 如果有回传 --!}}
+            <div id="post-real" class="post-real">
+                {{markdown}}
+            </div>
+        </div>
+
+        <button name="submit" type="submit">提交表单</button> 
+    </form>
+    <footer class="clearfix"></footer>
+    {{#block ("script")}}
+        <script src="js/marked.min.js"></script>
+        <script src="js/prism.js"></script>
+        <script src="js/ajax.min.js"></script>
+        <script>
+            window.onload = function(){
+                function queryDom(el){
+                    return document.querySelector(el);
+                }
+
+                var postEdit = queryDom('#post');
+                postEdit.addEventListener('change',function(){
+                    queryDom('#post-real').innerHTML = marked(this.value);
+                });
+
+                postEdit.addEventListener('drop',function(e){
+                    e.preventDefault();
+                    var tmp = [];
+                    var files = e.dataTransfer.files;
+                    for(var i = 0, ln = files.length;i<ln;i++){
+                        tmp.push(files[i]);
+                    }
+
+                    var startPos = this.selectionStart;
+                    var endPos = this.selectionEnd;
+                    var nowStr = this.value;
+
+                    var ajax = new Ajax();
+                    var picForm = new FormData();
+                    picForm.append('image',tmp[0]);
+
+                    var imageUrl,insertStr,imageName;
+                    var xmlHttp = new XMLHttpRequest();
+                      xmlHttp.open("POST", "/upload/pic", true);
+                      xmlHttp.onreadystatechange = function(xhr,sec) {
+                        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                            var resp = JSON.parse(xmlHttp.response);  
+                            imageUrl = resp.data.url;
+                            imageName = resp.data.name;
+                            insertStr = "!["+imageName+"]("+imageUrl+")";
+                            var finalStr = nowStr.substring(0,startPos) + 
+                                     insertStr +
+                                    nowStr.substring(endPos,nowStr.length);
+                            this.value = finalStr;
+                            this.selectionStart = this.selectionEnd = startPos + insertStr.length;
+                        } else {
+                            imageUrl = "";
+                        }
+                      }.bind(this);
+                     
+                      xmlHttp.send(picForm);
+
+                                         
+                },false);
+
+
+                var tagsArr = [];
+                queryDom('.more-tag').addEventListener('click',function(e){
+
+
+                    var currentTag = queryDom('#tag').value;
+                    console.log(queryDom('#tag'));
+                    if(!currentTag || tagsArr.indexOf(currentTag)!=-1){
+                        return;
+                    }
+                    tagsArr.push(currentTag);
+                    queryDom('#tag').value = "";
+
+
+                    queryDom('#real_tag').value = tagsArr.join(',');
+
+                    e.preventDefault();
+                    var tags = queryDom('#tags');
+                    var tag_input = document.createElement('span');
+                    var tag_remove = document.createElement('button');
+                    tag_input.innerText = currentTag;
+                    tag_remove.className = 'cancel';
+                    tag_remove.innerText = "x";
+                    tags.appendChild(tag_input);
+                    tags.appendChild(tag_remove);
+                });
+
+
+                document.addEventListener('click',function(e){
+                    if(e.target.className && e.target.className == 'cancel'){                        
+                        var previous = e.target.previousElementSibling;
+                        var f = e.target.parentElement;
+                        f.removeChild(previous);
+                        f.removeChild(e.target);
+                    }                    
+                })
+            }
+        </script>
+    {{/block}}
+{{/block}}            

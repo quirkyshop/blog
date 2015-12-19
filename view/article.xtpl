@@ -1,0 +1,70 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <link href="/css/highlight.css" rel="stylesheet"/>
+{{/block}}
+
+{{#block ("body")}}           
+        {{#with(post)}} 
+                <div class="article">
+                    <h2 class="title">{{title}}</h2>
+                    <p class="desc">{{author}} | {{dateInfo}} | 阅读量: {{this.pv}}</p>
+                    <div class="post">
+                        {{{content}}}
+                    </div>
+                    <ul class="tags">
+                        <li class="txt">标签: </li>
+                        {{#each(tags)}}
+                            <li>
+                                <a href="/tags/{{this}}" class="tag">{{this}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <div class="share-bar">
+                        <h3>分享到微信:</h3>
+                        <div id="qrcode"></div>   
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <footer class="clearfix">
+                    <!-- 多说评论框 start -->
+                    <div class="ds-thread" data-thread-key="{{id}}" data-title="{{title}}" data-url="{{url}}"></div>
+                    <!-- 多说评论框 end -->
+                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"quirkyvar"};
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0] 
+                             || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                        </script>
+                    <!-- 多说公共JS代码 end -->                 
+                </footer>
+        {{/with}}            
+
+        {{#block ("script")}}
+        <script src="../js/qrcode.min.js"></script>
+        <script>
+            var qrCode = new QRCode(document.getElementById("qrcode"), {
+                text: document.location.href,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            function shareWeibo (){
+                var shareUrl = 'http://v.t.sina.com.cn/share/share.php?title=' + 
+                '小恐龙精华 - ' + '{{title}}'
+                '&url=' + window.location.href;
+
+                window.open(shareUrl);
+            }
+            </script>
+        {{/block}}
+{{/block}}            

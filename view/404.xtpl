@@ -1,0 +1,12 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+    </style>
+{{/block}}
+
+{{#block ("body")}}            
+    
+    <div>咦,页面丢哪去了?</div>
+
+{{/block}}                   

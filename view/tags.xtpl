@@ -1,0 +1,32 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+
+    </style>
+{{/block}}
+
+{{#block ("body")}}            
+                <ul class="archs">
+                    {{#each(tags)}}
+                        <li>
+                            <a class="tag" href="/tags/{{this.name}}">
+                                <span>{{this.name}}</span>
+                                <span class="count">{{this.count}}</span>
+                            </a>
+                            
+                        </li>
+                    {{/each}}
+                </ul>
+                <ul class="posts">
+                    {{#each(posts)}}
+                        <li>
+                            <a href="/posts/{{this.post_id}}">
+                                <h4>{{this.title}}</h4>
+                                <p class="time-info">{{this.dateInfo}}</p>
+                            </a>
+                        </li>
+                    {{/each}}                    
+                </ul>
+                <footer class="clearfix"></footer>
+{{/block}}            

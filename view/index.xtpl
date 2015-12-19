@@ -1,0 +1,24 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+    </style>
+{{/block}}
+
+{{#block ("body")}}         
+    服务器共花费了{{searchTime}}秒去查询所有文章   
+    <ul class="posts">
+        {{#each(posts)}}
+            <li>
+                <a class="post-link" href="/posts/{{this.post_id}}">
+                    <h3>{{this.title}}</h3>
+                    <p class="desc">{{author}} | {{dateInfo}} | 阅读量: {{this.pv}}</p>
+                    <p class="summary">
+                        {{rawContent}}
+                    </p>
+                </a>
+            </li>
+        {{/each}}                    
+    </ul>
+    <footer class="clearfix"></footer>
+{{/block}}                   

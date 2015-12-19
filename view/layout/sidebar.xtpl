@@ -1,0 +1,26 @@
+<!-- 边栏-->
+<aside class="sidebar">
+    <div class="title">
+        <h2>作坊</h2>
+    </div>
+    <nav role="navigation">
+        <ul class="works">
+            <li>
+                <a href="https://github.com/quirkyshop" class="work-name">
+                    <h3></h3>
+                    <p class="desc">
+                        <img class="avatar" src="https://avatars2.githubusercontent.com/u/16117460?v=3&s=64"/>
+                        <span>GitHub 仓库</span>
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/quirkyshop" class="work-name">
+                    <h3>欢迎关注</h3>
+                    <img class="wx" src="/image/wx.jpg"/>
+                    
+                </a>
+            </li>            
+        </ul>
+    </nav>
+</aside>

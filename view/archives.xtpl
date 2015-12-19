@@ -1,0 +1,35 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <style>
+
+    </style>
+{{/block}}
+
+{{#block ("body")}}            
+                <ul class="archs">
+                    {{#each(archives)}}
+                        <li>
+                            <h3>{{this.year}}年</h3>
+                        </li>
+                        {{#each(arr)}}
+                            <li>
+                                <a href="/archives/{{this.year}}/{{this.month}}">
+                                    {{this.month}} 月
+                                </a>
+                            </li>
+                        {{/each}}
+                    {{/each}}
+                </ul>
+                <ul class="posts">
+                    {{#each(posts)}}
+                        <li>
+                            <a href="/posts/{{this.post_id}}">
+                                <h4>{{this.title}}</h4>
+                                <p class="time-info">{{this.dateInfo}}</p>
+                            </a>
+                        </li>
+                    {{/each}}                    
+                </ul>
+                <footer class="clearfix"></footer>
+{{/block}}                   
