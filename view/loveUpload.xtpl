@@ -1,0 +1,109 @@
+{{extend ("./layout/layout")}}
+
+{{#block ("head")}}
+    <link rel="stylesheet" href="/css/love.css" />  
+{{/block}}
+
+{{#block ("body")}}            
+    <form action="/uploadLoves" method="post" enctype="multipart/form-data">
+        <div class="form-data">
+            <label for="title">系列名:</label>
+            <input type="text" id="title" name="title" required/>
+        </div>
+
+        <div class="form-data">
+            <input type="hidden" id="realImage" name="realImage" required/>
+        </div>
+
+        <div class="form-data">
+            <div id="uploadArea" class="uploadArea" contentEditable></div>
+        </div>        
+
+        <div class="form-data">
+            <label>正文</label>
+            <textarea id="content"></textarea>
+        </div>
+
+        <ul id="uploadResult">
+            
+        </ul>
+
+        <button id="uploadPic" type="button">上传图片</button>
+
+        <button name="submit" type="submit">提交表单</button> 
+    </form>
+    <footer class="clearfix"></footer>
+    {{#block ("script")}}        
+        <script src="js/ajax.min.js"></script>
+        <script>
+            window.onload = function(){
+                function queryDom(el){
+                    return document.querySelector(el);
+                }
+
+                var uploadContent = queryDom('#content');
+                var uploadArea = queryDom('#uploadArea');
+                var realImage = queryDom('#realImage');
+
+                var imgArr = [];                
+                uploadArea.addEventListener('drop',function(e){
+                    e.preventDefault();
+                    var tmp = [];
+                    var files = e.dataTransfer.files;
+                    for(var i = 0, ln = files.length;i<ln;i++){
+                        tmp.push(files[i]);
+                    }
+
+                    var startPos = this.selectionStart;
+                    var endPos = this.selectionEnd;
+                    var nowStr = this.value;
+
+                    var ajax = new Ajax();
+                    var picForm = new FormData();
+                    picForm.append('image',tmp[0]);
+
+                    var imageUrl,insertStr,imageName;
+                    var xmlHttp = new XMLHttpRequest();
+                      xmlHttp.open("POST", "/upload/pic", true);
+                      xmlHttp.onreadystatechange = function(xhr,sec) {
+                        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                            var resp = JSON.parse(xmlHttp.response);  
+                            imageUrl = resp.data.url;
+                            imageName = resp.data.name;
+                            
+                            imgArr.push({
+                                url:imageUrl
+                            });
+
+                        } else {
+                            imageUrl = "";
+                        }
+                      }.bind(this);
+                     
+                      xmlHttp.send(picForm);                                        
+                },false);
+
+                var result = queryDom('#uploadResult');
+                queryDom('#uploadPic').addEventListener('click',function(e){
+                    e.preventDefault();
+                    var index = imgArr.length -1 ;
+                    imgArr[index].content = uploadContent.value;
+                    if(!imgArr[index].url){
+                        return;
+                    }
+
+                    var img = document.createElement('li');
+                    img.innerText = "url:" + imgArr[index].url;
+                    result.appendChild(img);
+                    console.log(imgArr);                    
+
+                    realImage.value = JSON.stringify(imgArr);
+                    console.log(realImage.value);
+
+                    uploadContent.value = "";
+                });
+
+            }
+        </script>
+    {{/block}}
+{{/block}}            
