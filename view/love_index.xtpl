@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/love.css">
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <div class="page-love">
+        <header class="love-header">
+            <a href="/loves">
+                <img class="love-logo" src="/image/love.png"/>
+                <span class="logo-title">our love</span>
+            </a>
+        </header>
+
+        <ul class="loves">
+        {{#each(lovesArr)}}
+            <li>
+                <a class="love-link" href="/loves/{{this.love_id}}">
+                    <h3 class="title">{{this.title}}</h3>
+                    <h5 class="subtitle">共{{this.imageArr.length}}张相片</h5>
+                    <p class="desc">{{this.dateInfo}}</p>                
+                </a>
+            </li>
+        {{/each}}                    
+    </ul>
+    </div>
+</body>
+</html>

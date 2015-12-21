@@ -1,5 +1,6 @@
 var index = require('../controller/index');
 var posts = require('../controller/posts');
+var loves = require('../controller/loves');
 var archives = require('../controller/archives');
 var tags = require('../controller/tags');
 var path = require('path');
@@ -27,6 +28,13 @@ module.exports = function(app){
 
     // 上传文章
     app.post('/uploadPost',posts.uploadPost);
+
+    // 上传照片
+    app.get('/loves',loves.index)
+    app.post('/uploadLoves',loves.uploadLoves);    
+    app.get('/uploadLoves',loves.upload);    
+    app.get('/loves/:id',loves.detail);
+    
 
     app.use(function *notFound(next) {
       if (this.status == 404) {

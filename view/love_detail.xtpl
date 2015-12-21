@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/love.css">
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <div class="page-love">        
+        <header class="love-header">
+            <a href="/loves">
+                <img class="love-logo" src="/image/love.png"/>
+                <span class="logo-title">our love</span>
+            </a>
+        </header>
+        <div class="love-detail">
+        {{#with(love)}}            
+            <h1 class="title">{{title}} </h1>
+            <ul>
+                {{#each(imageArr)}}
+                    <li>
+                        <img class="pic" src="{{this.url}}"/>                        
+                        <div class="description">
+                            <div class="benchmark"></div>
+                            <p class="txt">{{this.content}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/with}}             
+        </div>
+
+        <p class="share">分享到朋友圈</p>
+        <div id="qrcode"></div>       
+        <script src="../js/qrcode.min.js"></script>
+        <script>
+            var qrCode = new QRCode(document.getElementById("qrcode"), {
+                text: document.location.href,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            function shareWeibo (){
+                var shareUrl = 'http://v.t.sina.com.cn/share/share.php?title=' + 
+                '小浪漫 - ' + '{{title}}'
+                '&url=' + window.location.href;
+
+                window.open(shareUrl);
+            }
+            </script>
+    </div>
+</body>
+</html>     
