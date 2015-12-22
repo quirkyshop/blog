@@ -20,6 +20,12 @@
         </div>        
 
         <div class="form-data">
+            <div id="showPicWrap">
+                <img id="showPic" alt="准备放上图" style="width:280px;"/>
+            </div>
+        </div>        
+
+        <div class="form-data">
             <label>正文</label>
             <textarea id="content"></textarea>
         </div>
@@ -47,7 +53,8 @@
 
                 var imgArr = [];                
                 uploadArea.addEventListener('drop',function(e){
-                    e.preventDefault();
+                    e.preventDefault();                    
+                    e.stopPropagation();
                     var tmp = [];
                     var files = e.dataTransfer.files;
                     for(var i = 0, ln = files.length;i<ln;i++){
@@ -63,6 +70,8 @@
                     picForm.append('image',tmp[0]);
 
                     var imageUrl,insertStr,imageName;
+                    var showPic = queryDom('#showPic');
+                    var showPicWrap = queryDom('#showPicWrap');
                     var xmlHttp = new XMLHttpRequest();
                       xmlHttp.open("POST", "/upload/pic", true);
                       xmlHttp.onreadystatechange = function(xhr,sec) {
@@ -75,19 +84,123 @@
                                 url:imageUrl
                             });
 
+                            showPic.setAttribute('src',imageUrl);
+
                         } else {
                             imageUrl = "";
                         }
                       }.bind(this);
                      
                       xmlHttp.send(picForm);                                        
+                      return false;
                 },false);
+
+                var isTagOpen = false;
+                var tagArr = [],tag;
+                var init = {};
+
+                showPic.addEventListener('mousedown',function(e){
+                    e.preventDefault();
+                    var x = e.offsetX;
+                    var y = e.offsetY;
+                    init = {
+                        x:x,
+                        y:y                        
+                    };
+                });
+
+                showPic.addEventListener('mousemove',function(e){
+                    e.preventDefault();
+                    var x = e.offsetX;
+                    if(!isTagOpen && init.x){
+                        if(Math.abs(x - init.x) >=30){
+                            isTagOpen = true;
+                        }
+                    }                    
+                });
+
+                var tagDomArr = [];
+                showPic.addEventListener('mouseup',function(e){
+                    e.preventDefault();
+                    if(isTagOpen){
+                        isTagOpen = false;
+                        var x = e.offsetX;              
+                        var direction = (x - init.x) > 0 ? 'left' : 'right'; 
+
+                        var tagDesc = prompt('标签说明','');
+                        if(tagDesc){
+                            tag = {};                       
+                            tag.direction = direction;                        
+                            tag.desc = tagDesc ? tagDesc : '';     
+
+
+                            if(tag.desc){
+                                var loveTag = document.createElement('div');
+                                loveTag.className = 'love_tag'+' '+direction;   
+                                loveTag.setAttribute('draggable','true'); 
+                                loveTag.setAttribute('tagIndex',tagArr.length);                        
+                                var tagHTML = "<div class='circle'></div>";
+                                tagHTML += "<div class='tri'></div>";
+                                tagHTML += "<div class='txt'>"+tag.desc+"</div>";
+                                loveTag.innerHTML = tagHTML;
+                                showPicWrap.appendChild(loveTag);
+
+
+                                tagDomArr.push(loveTag);
+                                loveTag.addEventListener('dragend',handleDragEnd,false);                            
+                            }
+
+                            tagArr.push(tag);                                                
+                        }
+                        
+                    }                    
+                });            
+                           
+                function handleDragEnd(e){                    
+                    var index = this.getAttribute('tagIndex');
+                    var left = this.style.left ? parseInt(this.style.left) : 0;
+                    var top = this.style.top ? parseInt(this.style.top) : 0;
+
+                    var h = this.getBoundingClientRect().height;
+                    var w = this.getBoundingClientRect().width;
+
+                    var picWidth = showPic.getBoundingClientRect().width;
+                    var picHeight = showPic.getBoundingClientRect().height;
+
+
+
+                    var _x,_y;
+
+                    if((left + e.layerX + w) > picWidth ){
+                        _x = (picWidth - w);
+                    }else if(left + e.layerX <= 0){
+                        _x = 0;
+                    }else {
+                        _x = (left + e.layerX);
+                    }
+
+                    if((top + e.layerY + h) > picHeight ){
+                        _y = picHeight;
+                    }else if(top + e.layerY <= 0){
+                        _y = 0;
+                    }else {
+                        _y = (top + e.layerY -h);
+                    }
+
+                    this.style.left = _x + 'px';
+                    this.style.top = _y + 'px';
+
+                    tagArr[index].x = Math.floor((_x/picWidth) * 100);
+                    tagArr[index].y = Math.floor((_y/picHeight) * 100);
+                }  
+
 
                 var result = queryDom('#uploadResult');
                 queryDom('#uploadPic').addEventListener('click',function(e){
                     e.preventDefault();
                     var index = imgArr.length -1 ;
                     imgArr[index].content = uploadContent.value;
+                    imgArr[index].tagArr = tagArr;
                     if(!imgArr[index].url){
                         return;
                     }
@@ -95,12 +208,18 @@
                     var img = document.createElement('li');
                     img.innerText = "url:" + imgArr[index].url;
                     result.appendChild(img);
-                    console.log(imgArr);                    
 
                     realImage.value = JSON.stringify(imgArr);
                     console.log(realImage.value);
 
                     uploadContent.value = "";
+                    tag = {};
+                    tagArr = [];
+                    tagDomArr.forEach(function(tagDom){
+                        tagDom.removeEventListener('dragend',handleDragEnd);
+                        showPicWrap.removeChild(tagDom);                        
+                    });
+                    showPic.setAttribute('src','');
                 });
 
             }

@@ -22,10 +22,19 @@
             <ul>
                 {{#each(imageArr)}}
                     <li>
-                        <img class="pic" src="{{this.url}}"/>                        
+                        <div class="pic_wrap">
+                            <img class="pic" src="{{this.url}}"/>                        
+                            {{#each(tagArr)}}
+                                <div class="love_tag {{direction}}" style="left:{{x}}%;top:{{y}}%;">
+                                    <div class="circle"></div>
+                                    <div class="tri"></div>
+                                    <div class="txt">{{desc}}</div>
+                                </div>
+                            {{/each}}
+                        </div>
                         <div class="description">
                             <div class="benchmark"></div>
-                            <p class="txt">{{this.content}}</p>
+                            <p class="txt">“ {{this.content}} ”</p>
                         </div>
                     </li>
                 {{/each}}

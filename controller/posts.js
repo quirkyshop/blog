@@ -66,8 +66,15 @@ module.exports = {
             var ext = tmparr[tmparr.length-1];
             var realPath = config.staticDir + '/upload/' + tmparr[tmparr.length-2] + "." + ext;
             imagepath = '/upload/' + tmparr[tmparr.length-2] + "." + ext; 
-            var stream = fs.createWriteStream(realPath);
-            fs.createReadStream(tmpath).pipe(stream);
+            var writer = fs.createWriteStream(realPath);
+            var reader = fs.createReadStream(tmpath);
+
+            reader.pipe(writer,{end:false}); 
+
+            reader.on('end', function() {
+              writer.end('');
+            });            
+
         }
 
         console.log("ima:",imagepath);
