@@ -64,16 +64,12 @@ var validator = require('koa-validator');
 app.use(validator());
 
 //静态文件cache
-var staticCache = require('koa-static-cache');
+var staticCache = require('koa-static');
 var staticDir = config.staticDir;
 
-// 更佳优雅的写法,通过一个统一堆栈查找
-var files = {};
-app.use(staticCache(staticDir+'/js'),{},files);
-app.use(staticCache(staticDir+'/css'),{},files);
 
 // 索引公共资源文件
-app.use(staticCache('./public'),{},files);   
+app.use(staticCache(staticDir));   
 
 //路由
 var router = require('koa-router');

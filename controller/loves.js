@@ -1,6 +1,7 @@
 var path = require('path');
 var fs = require('fs');
 var os = require('os');
+var parse = require('co-busboy');
 var lovesModel = require('../model/loves.js');
 var parse = require('co-busboy');
 var config = require('../config/config.js');
@@ -29,6 +30,7 @@ module.exports = {
             "lovesArr":lovesArr
         });
     }, 
+
 
         // 读入文章页面
     detail: function*(){
