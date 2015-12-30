@@ -7,7 +7,6 @@ var tagsModel = require('../model/tags.js');
 var archivesModel = require('../model/archives.js');
 var parse = require('co-busboy');
 var config = require('../config/config.js');
-var staticDir = path.join(__dirname,'../../public');
 
 marked.setOptions({
   highlight: function (code, lang, callback) {
@@ -29,9 +28,16 @@ function markDown(str){
 module.exports = {
 
     // 读入文章页面
-    article: function*(){
-        var postArr = yield postsModel.find({post_id:this.params.id});
-        var post = postArr[0];
+    article: function*(next){
+        var post = yield postsModel.findOne({post_id:this.params.id});
+        
+        if(!post){
+            this.status = 500;
+            yield next;
+            return;
+        }
+
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
         post.tags = post.tags.length > 0 ? (post.tags).toString().split(',') : [];
         var p_id = this.request.query.id;
         yield postsModel.update({post_id:this.params.id},{$inc:{pv:1}},{upsert:true});
@@ -40,7 +46,7 @@ module.exports = {
             "id":post.post_id,
             "title":post.title,
         	"pageStyle":"article",
-        	"staticDir":staticDir,
+            "device":device,            
             "post":post,
             "url":url
         });
@@ -50,8 +56,7 @@ module.exports = {
     upload: function*(){
         yield this.render('upload',{
         	"title":"上传页面",
-        	"pageStyle":"upload",
-        	"staticDir":staticDir
+        	"pageStyle":"upload"
         });
     }, 
 

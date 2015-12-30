@@ -1,0 +1,9 @@
+{{#if( device==='mobile' )}}
+<script>
+	var fontEl = document.createElement('style');
+	var w = document.documentElement.getBoundingClientRect().width;
+	var rem = Math.ceil(w/(360/14));
+	document.documentElement.firstElementChild.appendChild(fontEl);
+	fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';			
+</script>
+{{/if}}

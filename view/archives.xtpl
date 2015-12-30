@@ -25,7 +25,7 @@
                     {{#each(posts)}}
                         <li>
                             <a href="/posts/{{this.post_id}}">
-                                <h4>{{this.title}}</h4>
+                                <h4 class="summary-title">{{this.title}}</h4>
                                 <p class="time-info">{{this.dateInfo}}</p>
                             </a>
                         </li>

@@ -6,6 +6,7 @@ var tags = require('../controller/tags');
 var path = require('path');
 var staticDir = path.join(__dirname,'../../public');
 module.exports = function(app){
+
     //首页
     app.get('/',index.index);
 
@@ -37,23 +38,27 @@ module.exports = function(app){
     
 
     app.use(function *notFound(next) {
+
+      var device = this['device-detecion'].Mobile ? 'mobile':'pc';  
       if (this.status == 404) {
         yield this.render('404',{
             "title":"页面找不到了...",
             "pageStyle":"error",
-            "staticDir":staticDir
+            "device":device
         });
       } else {
         yield next;
       }
     });    
 
-    app.use(function *notFound(next) {
-      if (this.status == 500) {
+    app.use(function *sthErr(next) {
+
+      var device = this['device-detecion'].Mobile ? 'mobile':'pc';  
+      if (this.status >= 500) {
         yield this.render('500',{
             "title":"咦.好像出了点问题...",
             "pageStyle":"error",
-            "staticDir":staticDir
+            "device":device
         });
       } else {
         yield next;

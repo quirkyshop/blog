@@ -10,11 +10,13 @@
     <div class="about-content">
         <div class="about-origin">
         	<img src="image/origin.gif"/>
-        	<p>这幅图很好的介绍了小恐龙的来由。最初这个称号更多是好笑。</p>
 
-        	<p>但是后来这个名号触使我时刻保持警惕，谦虚。</p>
+            <div class="explanation">
+                <p>这幅图很好的介绍了小恐龙的来由。最初这个称号更多是好笑。</p>
+                <p>但是后来这个名号触使我时刻保持警惕，谦虚。</p>
+                <p>继续前行！</p>                            
+            </div>
 
-			<p>继续前行！</p>        	
         </div>
 
 

@@ -2,7 +2,8 @@ var path = require('path');
 var postsModel = require('../model/posts.js');
 var tagsModel = require('../model/tags.js');
 var staticsModel = require('../model/statics.js');
-var staticDir = path.join(__dirname,'../../public');
+var uaUtil = require('../public/util/fitUaUrl.js');
+
 
 module.exports = {
 
@@ -26,21 +27,25 @@ module.exports = {
         // 总pv和日pv
         yield staticsModel.update({"type":"pv"},{$inc:{count:1}},{upsert:true});   
         yield staticsModel.update({"time":dateInfo},{$inc:{pv:1}},{upsert:true});   
+        
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
 
         yield this.render('index',{
         	"title":"首页",
         	"pageStyle":"index",
-        	"staticDir":staticDir,
             "posts":postArr,
+            "device":device,
             "searchTime":searchTime
         });
     },
 
     about: function*(){
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+
         yield this.render('about',{
         	"title":"更多页面",
-        	"pageStyle":"about",
-        	"staticDir":staticDir
+            "device":device,                        
+        	"pageStyle":"about"
         });
     }      
 }

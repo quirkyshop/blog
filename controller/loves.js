@@ -33,9 +33,16 @@ module.exports = {
 
 
         // 读入文章页面
-    detail: function*(){
+    detail: function*(next){
         var love = yield lovesModel.findOne({love_id:this.params.id});
         console.log("search for love:",love);
+
+        if(!love){
+            this.status = 500;
+            yield next;
+            return;
+        }
+
         yield this.render('love_detail',{
             "id":love.love_id,
             "title":love.title,

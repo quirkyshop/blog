@@ -1,7 +1,7 @@
 {{extend ("./layout/layout")}}
 
 {{#block ("head")}}
-    <link href="/css/highlight.css" rel="stylesheet"/>
+    <link href={{"/"+device+"/css/highlight.css"}} rel="stylesheet"/>
 {{/block}}
 
 {{#block ("body")}}           
@@ -47,7 +47,7 @@
         {{/with}}            
 
         {{#block ("script")}}
-        <script src="../js/qrcode.min.js"></script>
+        <script src="{{"/"+device+"/js/qrcode.min.js"}}"></script>
         <script>
             var qrCode = new QRCode(document.getElementById("qrcode"), {
                 text: document.location.href,
