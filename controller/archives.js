@@ -1,7 +1,6 @@
 var path = require('path');
 var archivesModel = require('../model/archives.js');
 var postsModel = require('../model/posts.js');
-var staticDir = path.join(__dirname,'../../public');
 
 
 module.exports = {
@@ -36,10 +35,12 @@ module.exports = {
     		posts = yield postsModel.find({"dateInfo":new RegExp(archives[0].year+"-"+archives[0].month, "i")});
     	}
 
+
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
         yield this.render('archives',{
         	"title":"存档页",
         	"pageStyle":"archives",
-        	"staticDir":staticDir,
+            "device":device,            
         	"archives":archArr,
         	"posts":posts
         });

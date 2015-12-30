@@ -1,8 +1,6 @@
 var path = require('path');
 var tagsModel = require('../model/tags.js');
 var postsModel = require('../model/posts.js');
-var staticDir = path.join(__dirname,'../../public');
-
 
 module.exports = {
 
@@ -13,10 +11,12 @@ module.exports = {
     		var reg = tags[0];
     		posts = yield postsModel.find({"tags":new RegExp(tags[0], "i")});
     	}
+
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
         yield this.render('tags',{
         	"title":"标签页",
+            "device":device,            
         	"pageStyle":"tags",
-        	"staticDir":staticDir,
         	"tags":tags,
         	"posts":posts
         });
@@ -26,10 +26,11 @@ module.exports = {
     	var tag = yield tagsModel.find({name:this.params.id});
     	var postArr = yield postsModel.find({"tags":new RegExp(this.params.id, "i")});
 
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
     	yield this.render('tags',{
         	"title":"搜索"+tag,
+            "device":device,            
         	"pageStyle":"tags",
-        	"staticDir":staticDir,
         	"tags":tag,
         	"posts":postArr
         });

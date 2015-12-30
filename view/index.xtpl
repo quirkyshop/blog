@@ -6,7 +6,7 @@
 {{/block}}
 
 {{#block ("body")}}         
-    服务器共花费了{{searchTime}}秒去查询所有文章   
+    <p class="serverTime">服务器共花费了{{searchTime}}秒去查询所有文章</p>
     <ul class="posts">
         {{#each(posts)}}
             <li>

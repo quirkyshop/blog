@@ -10,8 +10,7 @@
 
 {{#block ("body")}}            
     
-    <div class="error">咦,页面丢哪儿去了?</div>
+    <div class="error">咦,好像出了点问题。不如回首页看看</div>
     <a class="error-home" href="/">回首页看看</a>
-    
 
 {{/block}}                   

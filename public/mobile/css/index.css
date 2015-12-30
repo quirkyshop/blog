@@ -1,0 +1,485 @@
+/* 基本的全局样式*/
+html,body {
+    margin: 0;
+    padding: 0;
+    font: 80% georgia, sans-serif;
+    height: 100%;
+    width: 100%;
+    color:#666;
+    background: #acd0ce;
+}
+
+p {
+    margin:0;
+    text-align: justify;
+}
+a {
+    text-decoration: none;
+    color:#666;
+}
+ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+h1,h2,h3,h4,h5{
+    margin:0;
+    padding:0;
+}
+
+/* 页面样式*/
+.page-wrapper{
+    position: relative;
+    min-height: 100%;
+    background: #f6f6f6;
+    margin-bottom: -4.8rem;
+}
+
+.page-footer,.footer-holder{
+    height:4.8rem;
+}
+
+.page-footer{
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.12);
+    background: #acd0ce;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 4.8rem;
+    font-style: italic;
+    position: absolute;
+}
+
+/* banner样式*/
+.intro {
+    width: 100%;
+    background: #acd0ce;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);
+}
+
+.banner{
+    text-align: left;
+    padding: 1rem;
+}
+
+.banner .home{
+    display: inline-block;
+    margin:0 auto;
+    width: 100%;
+}
+.banner .slogon{
+    display: none;
+
+}
+.banner .row{
+    background: #fff;
+}
+
+
+.banner .logo-wrap{
+    float:left;
+    background: #efefef;
+    border: 4px solid #999;
+    padding: 8px 4px;
+    box-shadow: 4px 4px #444;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.banner .logo-wrap img{
+    width: 96px;
+}
+.banner .logo-holder{
+    display: inline-block;
+    text-align: right;
+}
+.banner .logo-dot{
+    display: inline-block;
+    width: 10px;
+    margin-right: 6px;
+    height: 10px;
+    background: #cc3366;
+}
+
+
+.banner .brief-intro{
+    color: #666;
+    font-size: 2rem;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 1rem 2rem;
+    font-style: italic;
+}
+.banner .subtitle{
+    color: #666;
+    font-size: 1.6rem;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 1rem 2rem;
+    font-weight: 700;
+}
+.banner .logo-preamble{
+    display: none;
+}
+
+.content{
+    box-sizing: border-box;
+}
+
+/* menu样式*/
+.menu-box{
+
+}
+.menu-box a{
+    text-align: center;
+    display: table-cell;
+    width: 9999px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 2.8rem;
+    box-shadow:0 1px 5px #94b3b1, inset 0 10px 20px #94b3b1;
+}
+.menu-box a:hover{
+    background: #F7F0DB;
+}
+
+.page-about .about-content{
+    margin:1rem;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+}
+
+.page-about .about-origin .explanation{
+    font-weight: 700;
+    font-size:1rem;
+    line-height: 2rem;
+}
+
+.page-article .preamble,.page-about .preamble{
+    display: none;
+}
+
+.page-article h1,.page-article h2,.page-article h3,.page-article h4,.page-article h5{
+    margin:1rem 0;
+    color:#000;
+}
+.page-article p {
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    text-indent:1rem;
+}
+.page-article h2{
+    font-size:1.6rem;
+}
+.page-article h3{
+    font-size: 1.4rem;
+}
+.page-article h4{
+    font-size: 1.2rem;
+}
+.page-article h5{
+    font-size: 1rem;
+}
+
+/** 文章主体**/
+.main{
+    overflow: hidden;
+}
+.content{
+    overflow: hidden;
+    height: 100%;
+}
+
+.serverTime{
+    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.page-index .posts li{
+    padding: 0rem 1.6rem;
+}
+.page-index .post-link{    
+    display: block;
+}
+.page-index .post-link:hover{
+    opacity: 0.6;
+}
+.page-index .post-link h3{
+    text-overflow: ellipsis;
+    color:#79A8A5;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.2rem;
+}
+.page-index .post-link .desc{
+    color:#999;
+    margin:1rem 0;
+    font-size: 1rem;
+}
+.page-index .post-link .summary{
+    display: none;
+}
+
+/* 归档主体*/
+.page-archives .archs,.page-archives .posts{
+    margin: 1rem;    
+    font-size:1.4rem;
+}
+
+.page-tags .archs,.page-tags .posts{
+    margin: 1rem;
+    font-size:0;
+}
+
+
+.page-tags .archs li,.page-tags .posts li{
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 30%;
+    margin-right: 3%;
+}
+
+.page-archives .archs li,.page-archives .posts li{
+    display: inline-block;
+}
+
+.page-tags .posts h4,.page-archives .posts h4{
+    font-size:1.2rem;
+}
+.page-tags .posts .time-info,.page-archives .posts .time-info{
+    color:#999;
+    font-size: 0.8rem;
+}
+.page-tags .posts li,.page-archives .posts li{
+    width: 50%;
+    float: left;
+}
+.page-tags .posts a,.page-archives .posts a{
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.page-tags .posts .summary-title,.page-archives .posts .summary-title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/** 分类页 标签按钮**/
+.page-tags .tag{
+    position: relative;
+    background: #acd0ce;
+    color: #666;
+    border: 0;
+    border-left: 4px solid #8BA7A5;
+    width: 100%;
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    padding: 0.4rem;
+    font-size: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.page-tags .tag span:first-child {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: table-cell;
+    white-space: nowrap;
+    max-width: 0;
+}
+
+.page-tags .tag .count{
+    border-radius: 16px;
+    display: table-cell;
+    text-align: center;
+    padding: 0 5px;
+    height: 16px;
+    line-height: 16px;
+    background: rgba(0,0,0,0.12);
+}
+
+/* 文章页面*/
+.page-article .article{
+    padding: 1rem;
+}
+
+.article .title{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+.article .desc{
+    font-size: 1rem;
+    color: #999;
+    line-height: 1.6rem;
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+}
+.article .post{
+    font-size: 1.6rem;
+    line-height: 3rem;
+    font-style: normal;
+    border-bottom: 1px solid rgba(0,0,0,0.13);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+.article .tags{
+    margin:1rem 0;
+}
+.article .tags li{
+    margin-right:1rem;
+}
+.article .tags .txt{
+    font-size: 1.2rem;
+    padding: 0.6rem;
+}
+.article .tags a{
+    border-radius: 4px;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.12);
+    background:#acd0ce;
+    color:#666;
+    border:0;
+    text-align: center;
+    padding:0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+}
+.article .tags a:hover{
+    background: #94b3b1;
+}
+
+.article .share-bar{
+    text-align: center;
+}
+
+.article .share-bar h3{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#qrcode img{
+    margin:0 auto;
+}
+
+/* 清除浮动 */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.content footer{
+
+}
+
+/* 上传文章页面*/
+.page-upload .content{
+    width: 100%;
+}
+.preamble{
+    display: none;
+}
+.page-upload #post,.page-upload #post-real{
+    vertical-align: top;
+    display: inline-block;
+    padding:0;
+    width: 45%;
+    height: auto;
+    min-height: 20rem;
+    border:1px solid #999;
+}
+.page-upload .form-data{
+    margin: 1rem 0;
+}
+.page-upload .more-tag{
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background:#fff;
+    border:1px solid #999;
+}
+.page-upload label{
+    width: 5rem;
+    text-align: right;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+
+/* 侧栏样式*/
+.sidebar{
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.12);
+    width: 100%;
+    background: #F7F0DB;
+    bottom:0;
+    opacity: 0.9;
+}
+
+.sidebar .title {
+    display:none;
+}
+
+.sidebar .desc .avatar{
+    width:64px;
+    height: 64px;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+.work-name{
+    padding: 1rem 1rem 2rem 1rem;  
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.wx{
+    width: 60%;
+}
+
+.work-name:hover{
+    background: #f7e2a3;
+    opacity: 0.8;
+}
+
+.works h3{
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+}
+
+.works li{
+    display: none;
+}
+.works li:last-child{
+    display: block;
+}
+
+
+.works .desc{
+    font-size: 1.2rem;
+    line-height: 3.2rem;
+}
+
+
+.error{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.error-home{
+    display: block;
+    text-align: center;
+    margin: 0.6rem;
+    color:#94b3b1;
+}
+
+#ds-thread{
+    padding: 1rem;
+}

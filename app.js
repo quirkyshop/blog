@@ -6,6 +6,7 @@ var config = require('./config/config');
 var bodyParse =require('koa-better-body'); 
 var controller = require('./controller/index'); 
 
+
 var app = koa();
 app.use(function *(next){
     //config 注入中间件，方便调用配置信息
@@ -70,6 +71,9 @@ var staticDir = config.staticDir;
 
 // 索引公共资源文件
 app.use(staticCache(staticDir));   
+
+var uaParser = require('./public/util/ua-parser.js')
+app.use(uaParser());
 
 //路由
 var router = require('koa-router');

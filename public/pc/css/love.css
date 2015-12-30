@@ -1,0 +1,173 @@
+/* 基本的全局样式*/
+body{
+	background: #FFF5FE;
+}
+.page-love{
+	font-family: 'Bree Serif', serif;
+	padding-bottom:2rem;
+	width: 100%;
+}
+.uploadArea{
+    border:1px solid #d5d5d5;
+    width: 100px;
+    height: 100px;
+}
+
+.love-header{
+	width: 100%;
+	background:#c63b6f;
+	text-align: center;
+	padding:1rem 0;
+}
+
+.love-header img{
+	width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    vertical-align: middle;
+    border: 2px solid #fff;
+}
+.love-header span{
+	font-size:2rem;
+	margin-left:0.2rem;
+	vertical-align: middle;
+	color:#fff;
+}
+
+.love-link,.love-detail li{
+	position: relative;
+	background: #fff;
+	margin: 2rem;
+    display: block;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 3px #bbb,-1px -1px 1px #ddd;
+    -webkit-box-shadow: 3px 3px 3px #bbb,-1px -1px 1px #ddd;
+    border: 10px solid #fff;
+    border-radius: 5px;
+}
+.love-link img{
+	width: 100%;
+}
+.love-link .title{
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+	color:#444;
+	margin:0;
+	margin-bottom: 0.5rem;
+}
+.love-link .subtitle{
+    margin: 0;
+    line-height: 1.4rem;
+    color:#999;
+}
+.love-link .desc{
+	color:#999;
+}
+
+.love-detail{
+	margin:1rem;
+	box-sizing:border-box;
+}
+
+.love-detail .title{
+    text-align: center;
+	font-size: 1.8rem;
+	line-height: 3rem;
+}
+
+.love-detail .pic{
+	width: 100%;
+}
+
+
+.love-detail .description{
+    text-align: center;
+
+}
+.love-detail ul{
+	margin:2rem 0;
+}
+
+.love-detail .txt{
+    vertical-align: middle;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 700;
+    padding: 1rem;
+    font-family: sans-serif;
+    font-size: 1.2rem
+}
+.love-detail .benchmark{
+	vertical-align: middle;
+	height: 100%;
+	display: inline-block;
+}
+
+#qrcode img{
+	margin:0 auto;
+}
+.page-love .share{
+	font-size: 1.2rem;
+	text-align: center;
+	margin:0.5rem;
+}
+
+
+#showPicWrap,.pic_wrap{
+	position: relative;
+    white-space: nowrap;	
+}
+.love_tag{
+	font-size: 0;
+	margin:0;	
+	position: absolute;
+	top:0;
+	left:0;
+}
+.love_tag.left{
+	direction: rtl;
+}
+.love_tag.left .tri{
+    display: inline-block;
+    margin: 0;
+    width: 0;
+    height: 0;
+    border-top: 0.4rem solid transparent;
+    vertical-align: middle;
+    border-left: 0.5rem solid rgba(0,0,0,0.6);
+    border-bottom: 0.4rem solid transparent;
+}
+.love_tag.right .tri{
+    display: inline-block;
+    margin: 0;
+    width: 0;
+    height: 0;
+    border-top: 0.4rem solid transparent;
+    vertical-align: middle;
+    border-right: 0.5rem solid rgba(0,0,0,0.6);
+    border-bottom: 0.4rem solid transparent;
+}
+.love_tag .circle{
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.8rem;
+    margin: 0;
+    background: #fff;
+    vertical-align: middle;
+    margin: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0.8);
+}
+.love_tag .txt{
+    display: inline-block;
+    background: #000;
+    opacity: 0.6;
+    vertical-align: middle;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
