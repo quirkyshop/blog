@@ -54,9 +54,11 @@ module.exports = {
 
     // 上传文章get
     upload: function*(){
+        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
         yield this.render('upload',{
         	"title":"上传页面",
-        	"pageStyle":"upload"
+        	"pageStyle":"upload",
+            "device":device       
         });
     }, 
 
