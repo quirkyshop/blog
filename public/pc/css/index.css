@@ -244,6 +244,10 @@ color: #666;
     font-size: 1.8rem;
 }
 
+.page-article .article li{
+    list-style: square;
+}
+
 /** 文章主体**/
 .main{
     width: 80%;

@@ -313,6 +313,10 @@ h1,h2,h3,h4,h5{
     padding: 1rem;
 }
 
+.page-article .article li{
+    list-style: square;
+}
+
 .article .title{
     font-size: 1.6rem;
     line-height: 2.4rem;
