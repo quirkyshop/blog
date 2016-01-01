@@ -401,6 +401,7 @@ color: #666;
 .article .tags li{
     float: left;
     margin-right:1rem;
+    list-style:none;
 }
 .article .tags .txt{
     font-size: 1.2rem;

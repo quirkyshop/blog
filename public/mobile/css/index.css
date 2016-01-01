@@ -340,11 +340,15 @@ h1,h2,h3,h4,h5{
     margin:1rem 0;
 }
 .article .tags li{
-    margin-right:1rem;
+    margin-right: 1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    list-style: none;
 }
 .article .tags .txt{
     font-size: 1.2rem;
     padding: 0.6rem;
+    width: auto;
 }
 .article .tags a{
     border-radius: 4px;
