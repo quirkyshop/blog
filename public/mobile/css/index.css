@@ -321,6 +321,11 @@ h1,h2,h3,h4,h5{
     font-size: 1.6rem;
     line-height: 2.4rem;
 }
+
+.article a{
+    color:#6eca97;
+}
+
 .article .desc{
     font-size: 1rem;
     color: #999;
