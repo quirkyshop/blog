@@ -39,10 +39,10 @@
         <button name="submit" type="submit">提交表单</button> 
     </form>
     <footer class="clearfix"></footer>
-    {{#block ("script")}}
-        <script src="js/marked.min.js"></script>
-        <script src="js/prism.js"></script>
-        <script src="js/ajax.min.js"></script>
+    {{#block ("script")}}            
+        <script src={{"/"+device+"/js/marked.min.js"}}></script>
+        <script src={{"/"+device+"/js/prism.js"}}></script>
+        <script src={{"/"+device+"/js/ajax.min.js"}}></script>
         <script>
             window.onload = function(){
                 function queryDom(el){
