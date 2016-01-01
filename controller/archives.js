@@ -36,7 +36,7 @@ module.exports = {
     	}
 
 
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
         yield this.render('archives',{
         	"title":"存档页",
         	"pageStyle":"archives",

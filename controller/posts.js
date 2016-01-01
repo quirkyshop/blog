@@ -37,7 +37,7 @@ module.exports = {
             return;
         }
 
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
         post.tags = post.tags.length > 0 ? (post.tags).toString().split(',') : [];
         var p_id = this.request.query.id;
         yield postsModel.update({post_id:this.params.id},{$inc:{pv:1}},{upsert:true});
@@ -54,7 +54,7 @@ module.exports = {
 
     // 上传文章get
     upload: function*(){
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
         yield this.render('upload',{
         	"title":"上传页面",
         	"pageStyle":"upload",

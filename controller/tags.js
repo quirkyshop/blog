@@ -12,7 +12,7 @@ module.exports = {
     		posts = yield postsModel.find({"tags":new RegExp(tags[0], "i")});
     	}
 
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
         yield this.render('tags',{
         	"title":"标签页",
             "device":device,            
@@ -26,7 +26,7 @@ module.exports = {
     	var tag = yield tagsModel.find({name:this.params.id});
     	var postArr = yield postsModel.find({"tags":new RegExp(this.params.id, "i")});
 
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
     	yield this.render('tags',{
         	"title":"搜索"+tag,
             "device":device,            
