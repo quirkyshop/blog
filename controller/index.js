@@ -28,7 +28,7 @@ module.exports = {
         yield staticsModel.update({"type":"pv"},{$inc:{count:1}},{upsert:true});   
         yield staticsModel.update({"time":dateInfo},{$inc:{pv:1}},{upsert:true});   
         
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
 
         yield this.render('index',{
         	"title":"首页",
@@ -40,7 +40,7 @@ module.exports = {
     },
 
     about: function*(){
-        var device = this['device-detecion'].Mobile ? 'mobile':'pc';
+        var device = this['is-mobile'] ? 'mobile':'pc';
 
         yield this.render('about',{
         	"title":"更多页面",

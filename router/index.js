@@ -39,7 +39,7 @@ module.exports = function(app){
 
     app.use(function *notFound(next) {
 
-      var device = this['device-detecion'].Mobile ? 'mobile':'pc';  
+      var device = this['is-mobile'] ? 'mobile':'pc';  
       if (this.status == 404) {
         yield this.render('404',{
             "title":"页面找不到了...",
@@ -53,7 +53,7 @@ module.exports = function(app){
 
     app.use(function *sthErr(next) {
 
-      var device = this['device-detecion'].Mobile ? 'mobile':'pc';  
+      var device = this['is-mobile'] ? 'mobile':'pc';  
       if (this.status >= 500) {
         yield this.render('500',{
             "title":"咦.好像出了点问题...",
