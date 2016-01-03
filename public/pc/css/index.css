@@ -375,6 +375,14 @@ color: #666;
     padding: 1rem;
 }
 
+.page-article ul{
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
 .article .title{
     font-size: 3.6rem;
     line-height: 4.8rem;

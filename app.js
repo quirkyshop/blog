@@ -72,7 +72,7 @@ var staticDir = config.staticDir;
 // 索引公共资源文件
 app.use(staticCache(staticDir));   
 
-var uaParser = require('./public/util/ua-parser.js')
+var uaParser = require('koa-ismobile')
 app.use(uaParser());
 
 //路由
