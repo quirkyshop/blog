@@ -375,7 +375,7 @@ color: #666;
     padding: 1rem;
 }
 
-.page-article ul{
+.page-article .article ul{
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
