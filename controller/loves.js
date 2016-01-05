@@ -22,11 +22,13 @@ module.exports = {
         });
 
         console.log("输出losv:",lovesArr);
-
+        var device = this['is-mobile'] ? 'mobile':'pc';
+        
         yield this.render('love_index',{
         	"title":"上传页面",
         	"pageStyle":"upload",
         	"staticDir":staticDir,
+            "device":device,     
             "lovesArr":lovesArr
         });
     }, 
@@ -43,19 +45,24 @@ module.exports = {
             return;
         }
 
+        var device = this['is-mobile'] ? 'mobile':'pc';
         yield this.render('love_detail',{
             "id":love.love_id,
             "title":love.title,
             "pageStyle":"detail",
+            "device":device,     
             "love":love,
             "staticDir":staticDir
         });
     },     
 
     upload: function*(){
+
+        var device = this['is-mobile'] ? 'mobile':'pc';
         yield this.render('loveUpload',{
             "title":"上传页面",
             "pageStyle":"upload",
+            "device":device,     
             "staticDir":staticDir
         });
     },

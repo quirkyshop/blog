@@ -1,7 +1,7 @@
 {{extend ("./layout/layout")}}
 
 {{#block ("head")}}
-    <link rel="stylesheet" href="/css/love.css" />  
+    <link rel="stylesheet" href={{"/"+device+"/css/love.css"}}> 
 {{/block}}
 
 {{#block ("body")}}            
@@ -40,7 +40,7 @@
     </form>
     <footer class="clearfix"></footer>
     {{#block ("script")}}        
-        <script src="js/ajax.min.js"></script>
+        <script src="{{"/"+device+"/js/ajax.min.js"}}"></script>
         <script>
             window.onload = function(){
                 function queryDom(el){

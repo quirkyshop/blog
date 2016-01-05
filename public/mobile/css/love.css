@@ -149,15 +149,14 @@ body{
 }
 .love_tag .circle{
     display: inline-block;
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 4px;
+    height: 4px;
     border-radius: 0.8rem;
     margin: 0;
     background: #fff;
     vertical-align: middle;
     margin: 4px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0,0,0,0.8);
+    border: 5px solid rgba(0,0,0,0.8);
 }
 .love_tag .txt{
     display: inline-block;

@@ -19,6 +19,15 @@ pre{
 .highlight pre {
   color: #ffffff;
 }
+
+code{
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    background: #666;
+    color: #fff;
+    border-radius: 4px;
+}
+
 .highlight .hll {
   background-color: #3e403d;
 }

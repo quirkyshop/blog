@@ -3,8 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/love.css">
+    <link rel="stylesheet" href={{"/"+device+"css/index.css"}}>
+    <link rel="stylesheet" href={{"/"+device+"css/love.css"}}>
     <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
@@ -44,7 +44,7 @@
 
         <p class="share">分享到朋友圈</p>
         <div id="qrcode"></div>       
-        <script src="../js/qrcode.min.js"></script>
+        <script src="{{"/"+device+"/js/qrcode.min.js"}}"></script>
         <script>
             var qrCode = new QRCode(document.getElementById("qrcode"), {
                 text: document.location.href,
