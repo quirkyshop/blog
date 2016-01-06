@@ -1,11 +1,18 @@
 /* 基本的全局样式*/
-body{
-	background: #FFF5FE;
+html,body{
+    background:#c63b6f !important; 
 }
+.page-footer{
+    background:#c63b6f !important;
+}
+.page-footer a {
+    color:#fff !important;
+}
+
 .page-love{
 	font-family: 'Bree Serif', serif;
-	padding-bottom:2rem;
 	width: 100%;
+    background: #FFF5FE;
 }
 .uploadArea{
     border:1px solid #d5d5d5;

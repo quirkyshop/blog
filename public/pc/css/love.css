@@ -1,12 +1,21 @@
 /* 基本的全局样式*/
-body{
-	background: #FFF5FE;
-}
 .page-love{
 	font-family: 'Bree Serif', serif;
-	padding-bottom:2rem;
 	width: 100%;
+    background: #FFF5FE;
 }
+
+html,body{
+    background:#c63b6f !important;
+}
+.page-footer{
+    background:#c63b6f !important;
+}
+.page-footer a {
+    color:#fff !important;
+}
+
+
 .uploadArea{
     border:1px solid #d5d5d5;
     width: 100px;
