@@ -20,7 +20,7 @@ pre{
   color: #ffffff;
 }
 
-code{
+pre code{
     padding: 0.6rem;
     font-size: 1.2rem;
     background: #666;
