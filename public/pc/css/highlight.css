@@ -20,11 +20,16 @@ pre{
   color: #ffffff;
 }
 
-pre code{
+code{
     padding: 0.6rem;
     font-size: 1.2rem;
     background: #666;
     color: #fff;
+    border-radius: 4px;
+}
+
+pre code{
+    font-size: 1.2rem;
     border-radius: 4px;
 }
 
